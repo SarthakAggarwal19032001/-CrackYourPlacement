@@ -1,0 +1,32 @@
+class Solution {
+public int count(int[] nums, int ele){
+int c=0;
+for(int i: nums){
+if(i==ele){
+c++;
+}
+}
+return c;
+}
+    
+public void sortColors(int[] nums) {
+int red=count(nums, 0);
+int white=count(nums, 1);
+int blue=count(nums, 2);
+int check=0;
+
+        while(red>0){
+            nums[check++]=0; 
+            red--; 
+        }
+        while(white>0){
+            nums[check++]=1; 
+            white--; 
+        }
+    while(blue>0){
+        nums[check++]=2; 
+        blue--; 
+    }
+    
+}
+}
