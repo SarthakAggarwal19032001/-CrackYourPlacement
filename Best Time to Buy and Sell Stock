@@ -1,0 +1,20 @@
+class Solution {
+    public int maxProfit(int[] prices) {
+			int buy=prices[0];
+			int todayPrice;
+			int currentProfit;
+			int maxProfit=0;
+			for(int i:prices){
+				todayPrice=i;
+				currentProfit=todayPrice-buy;
+				if(currentProfit>maxProfit){
+					maxProfit=currentProfit;
+				}
+				if(currentProfit<0){
+					buy=todayPrice;
+				}
+			}
+			return maxProfit;
+        
+    }
+}
