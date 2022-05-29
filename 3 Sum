@@ -1,0 +1,31 @@
+class Solution {
+    public List<List<Integer>> threeSum(int[] nums) {
+        int n=nums.length,i=0,k=0;
+        List<List<Integer>> res=new ArrayList<>();
+        if(n<3)
+            return res;
+        Arrays.sort(nums);
+        HashMap<Integer,Integer> list=new HashMap<>();
+        HashMap<List<Integer>,Integer> map=new HashMap<List<Integer>,Integer>();
+        for(int num:nums)
+            list.put(num,k++);
+        while(i<n-1 && nums[i]<1){
+            for(int j=i+1;j<n;j++){
+                int target=0-(nums[i]+nums[j]);
+                if(list.containsKey(target) && list.get(target)>j){
+                    List<Integer> temp=new ArrayList<Integer>();
+                    temp.add(nums[i]);temp.add(nums[j]);temp.add(target);
+                    if(!map.containsKey(temp)){
+                        map.put(temp,0);
+                    }
+                }
+                
+            }
+            i++;
+        }
+        for(List<Integer> l:map.keySet()){
+            res.add(l);
+        }
+        return res;
+    }
+}
